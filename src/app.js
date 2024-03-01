@@ -4,7 +4,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', () => { return 'Hello World!'});
-
+app.get('/test', async (req, res) => res.send('Hello World!'));
 
 module.exports = app;
