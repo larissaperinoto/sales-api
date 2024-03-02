@@ -5,7 +5,10 @@ const createToken = (body) => {
   const token = jwt.sign(
     payload, 
     process.env.JWT_SECRET, 
-    { expiresIn: '1h', algorithm: 'HS256' }
+    { 
+      expiresIn: process.env.JWT_EXPIRATION_SECONDS, 
+      algorithm: 'HS256' 
+    }
   );
   
   return token;
