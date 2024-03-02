@@ -5,7 +5,6 @@ async function login(req, res) {
     const token = await loginService.login(req.body);
     res.status(200).json({ token });
   } catch(e) {
-    console.log(e)
     res.status(e.status).json({ message: e.message });
   }
 };
