@@ -58,4 +58,16 @@ async function updateProduct(dto) {
   return { ...product.dataValues, attributes };
 }
 
-module.exports = { insertProducts, updateProduct };
+
+async function find() {
+ return await Product.findAll({
+    include: [{
+      model: ProductAttribute,
+      as: 'attributes',
+      required: false,
+      attributes: ['id', 'brand', 'color', 'model', 'price'] 
+    }]
+  });
+}
+
+module.exports = { insertProducts, updateProduct, find };

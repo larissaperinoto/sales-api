@@ -15,9 +15,17 @@ async function update(req, res) {
     const response = await productsService.updateProduct(req.body);
     res.status(StatusCode.OK).json(response);
   } catch(e) {
-    console.log(e)
     res.status(e.status).json({ message: e.message });
   }
 };
 
-module.exports = { create, update };
+async function find(_req, res) {
+  try {
+    const response = await productsService.find();
+    res.status(StatusCode.OK).json(response);
+  } catch(e) {
+    res.status(e.status).json({ message: e.message });
+  }
+};
+
+module.exports = { create, update, find };

@@ -28,7 +28,8 @@ const ProductSchema = (sequelize, DataTypes) => {
     });
 
     ProductTable.hasMany(models.ProductAttribute, {
-      foreignKey: 'productId'
+      foreignKey: 'productId',
+      as: 'attributes'
     });
   };
 
