@@ -1,12 +1,14 @@
 const options = {
-  host: process.env.POSTGRES_HOST || 'localhost',
-  port: process.env.POSTGRES_PORT || 5432,
-  database: process.env.POSTGRES_DATABASE || 'development_db',
-  username: process.env.POSTGRES_USER || 'postgres',
-  password: process.env.POSTGRES_PASSWORD || 'postgres',
+  host: process.env.POSTGRES_HOST,
+  database: process.env.POSTGRES_DATABASE,
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
   dialect: 'postgres',
   dialectOptions: {
     timezone: 'Z',
+    ssl: {
+      require: true,
+    },
   },
   logging: false,
 };
