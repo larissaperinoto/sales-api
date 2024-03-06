@@ -1,9 +1,12 @@
+const pg = require('pg');
+
 const options = {
   host: process.env.POSTGRES_HOST,
   database: process.env.POSTGRES_DATABASE,
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   dialect: 'postgres',
+  dialectModule: pg,
   dialectOptions: {
     timezone: 'Z',
     ssl: {
