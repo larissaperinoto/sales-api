@@ -28,4 +28,14 @@ async function find(_req, res) {
   }
 };
 
-module.exports = { create, update, find };
+async function remove(req, res) {
+  try {
+    const response = await productsService.remove(req.params.productId);
+    res.status(StatusCode.NoContent).json(response);
+  } catch(e) {
+    console.log(e)
+    res.status(e.status).json({ message: e.message });
+  }
+};
+
+module.exports = { create, update, find, remove };

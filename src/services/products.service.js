@@ -58,7 +58,6 @@ async function updateProduct(dto) {
   return { ...product.dataValues, attributes };
 }
 
-
 async function find() {
  return await Product.findAll({
     include: [{
@@ -70,4 +69,8 @@ async function find() {
   });
 }
 
-module.exports = { insertProducts, updateProduct, find };
+async function remove(productId) {
+  await Product.destroy({ where: { id: productId }});
+ }
+
+module.exports = { insertProducts, updateProduct, find, remove };

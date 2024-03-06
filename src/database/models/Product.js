@@ -29,7 +29,8 @@ const ProductSchema = (sequelize, DataTypes) => {
 
     ProductTable.hasMany(models.ProductAttribute, {
       foreignKey: 'productId',
-      as: 'attributes'
+      as: 'attributes',
+      onDelete: 'CASCADE' 
     });
   };
 

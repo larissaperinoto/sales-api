@@ -36,7 +36,8 @@ const ProductSchema = (sequelize, DataTypes) => {
 
   ProductAttributesTable.associate = (models) => {
     ProductAttributesTable.belongsTo(models.Product, {
-      foreignKey: 'productId'
+      foreignKey: 'productId',
+      onDelete: 'CASCADE' 
     });
   };
 
