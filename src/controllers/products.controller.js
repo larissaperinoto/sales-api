@@ -19,9 +19,9 @@ async function update(req, res) {
   }
 };
 
-async function find(_req, res) {
+async function find(req, res) {
   try {
-    const response = await productsService.find();
+    const response = await productsService.find({ userId: req.user.email });
     res.status(StatusCode.OK).json(response);
   } catch(e) {
     res.status(e.status).json({ message: e.message });

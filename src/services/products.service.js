@@ -57,8 +57,9 @@ async function updateProduct(dto) {
   return { ...product.dataValues, attributes };
 }
 
-async function find() {
+async function find({ userId }) {
  return await Product.findAll({
+    where: { userId },
     include: [{
       model: ProductAttribute,
       as: 'attributes',
