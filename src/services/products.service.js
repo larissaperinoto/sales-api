@@ -43,9 +43,8 @@ async function insertProducts({ userId, products }) {
 }
 
 async function updateProduct(dto) {
-  console.log(dto)
 
-  const {attributesId, productId, userId, ...update } = dto;
+  const { attributesId, productId, userId, ...update } = dto;
 
   const product = await Product.findOne({ where: { id: productId, userId }});
 

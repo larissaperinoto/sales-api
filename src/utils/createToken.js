@@ -6,7 +6,7 @@ const createToken = (body) => {
     payload, 
     process.env.JWT_SECRET, 
     { 
-      expiresIn: process.env.JWT_EXPIRATION_SECONDS, 
+      expiresIn: +process.env.JWT_EXPIRATION_SECONDS || 1800, 
       algorithm: 'HS256' 
     }
   );

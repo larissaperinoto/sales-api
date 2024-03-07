@@ -3,7 +3,7 @@ const StatusCode = require('../utils/statusCode');
 
 async function create(req, res) {
   try {
-    const response = await productsService.insertProducts(req.body);
+    const response = await productsService.insertProducts({ userId: req.user.email, products: req.body });
     res.status(StatusCode.Created).json(response);
   } catch(e) {
     res.status(e.status).json({ message: e.message });
@@ -12,7 +12,7 @@ async function create(req, res) {
 
 async function update(req, res) {
   try {
-    const response = await productsService.updateProduct(req.body);
+    const response = await productsService.updateProduct({ ...req.body, userId: req.user.email });
     res.status(StatusCode.OK).json(response);
   } catch(e) {
     res.status(e.status).json({ message: e.message });
